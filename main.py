@@ -45,7 +45,7 @@ class LitAutoEncoder(L.LightningModule):
 # Step 2: Define data
 # -------------------
 
-your_local_path = "/path/to/your/local/directory"
+your_local_path = "/MNIST"
 
 dataset = tv.datasets.MNIST(
     your_local_path, download=False, transform=tv.transforms.ToTensor())
