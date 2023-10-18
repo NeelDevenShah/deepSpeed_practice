@@ -4,6 +4,7 @@ import torch.utils.data as data
 import torchvision as tv
 import torch.nn.functional as F
 import lightning as L
+# import pytorch_lightning as L
 
 # --------------------------------
 # Step 1: Define a LightningModule
@@ -43,8 +44,11 @@ class LitAutoEncoder(L.LightningModule):
 # -------------------
 # Step 2: Define data
 # -------------------
+
+your_local_path = "/path/to/your/local/directory"
+
 dataset = tv.datasets.MNIST(
-    ".", download=True, transform=tv.transforms.ToTensor())
+    your_local_path, download=False, transform=tv.transforms.ToTensor())
 train, val = data.random_split(dataset, [55000, 5000])
 
 # -------------------
