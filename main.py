@@ -55,7 +55,8 @@ train, val = data.random_split(dataset, [55000, 5000])
 # Step 3: Train
 # -------------------
 autoencoder = LitAutoEncoder()
-trainer = L.Trainer()
+trainer = L.Trainer(accelerator="gpu", devices=4,
+                    strategy="deepspeed_stage_1", precision=16)
 trainer.fit(autoencoder, data.DataLoader(train), data.DataLoader(val))
 
 print('solved')
